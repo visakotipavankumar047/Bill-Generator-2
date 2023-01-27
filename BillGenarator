@@ -1,0 +1,27 @@
+def generate_bill():
+    # Initialize variables for the bill
+    total_cost = 0
+    taxes = 0.07
+    items = []
+
+    # Get input from the user for the items purchased
+    while True:
+        item = input("Enter item name (or 'done' to finish): ")
+        if item.lower() == "done":
+            break
+        cost = float(input("Enter item cost: "))
+        items.append((item, cost))
+        total_cost += cost
+
+    # Calculate the total cost with taxes
+    total_cost += total_cost * taxes
+
+    # Print the bill to the user
+    print("\nBill:")
+    for item in items:
+        print(f"{item[0]}: ${item[1]:.2f}")
+    print(f"Taxes: ${taxes * total_cost:.2f}")
+    print(f"Total: ${total_cost:.2f}")
+
+# Call the function to generate the bill
+generate_bill()
